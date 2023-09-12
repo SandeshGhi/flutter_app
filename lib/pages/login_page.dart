@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_application/config/app_icons.dart';
+import 'package:flutter_test_application/config/app_routes.dart';
+import 'package:flutter_test_application/config/app_strings.dart';
+import 'package:flutter_test_application/pages/home_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -16,17 +20,19 @@ class LoginPage extends StatelessWidget {
             child: Column(
               children: [
                 Spacer(),
-                Text("Hello, Welcome Back !", style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                  // fontFamily: "Urbanist",
-                ),),
+                Text(
+                  AppStrings.helloWelcome,
+                    style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    // fontFamily: "Urbanist",
+                  ),),
                 SizedBox(
                   height: 16,
                 ),
                 Text(
-                  "Login to Continue", 
+                  AppStrings.loginToContinue, 
                   style: TextStyle(
                     color: Colors.white,
                   ),),
@@ -71,7 +77,12 @@ class LoginPage extends StatelessWidget {
                 width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                print('Login is Clicked');
+                  // Navigator.of(context).push(MaterialPageRoute(
+                  //   builder: (context) {
+                  //     return HomePage();
+                  //   },
+                  // ));
+                  Navigator.of(context).pushReplacementNamed(AppRoutes.main);
                 },
                 style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.amber,
@@ -105,7 +116,7 @@ class LoginPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                   Image.asset(
-                  'assets/images/google.png', 
+                  AppIcons.icGoogle, 
                   width: 22, 
                   height: 22,
                 ),
@@ -137,7 +148,7 @@ class LoginPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                   Image.asset(
-                  'assets/images/facebook.png', 
+                  AppIcons.icFacebook, 
                   width: 22, 
                   height: 22,
                 ),
